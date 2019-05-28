@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block conteudo %}
+
+<h1>Lista de Projetos</h1>
+
+<table>
+<thead>
+<tr>
+    <th>id</th>
+    <th>nome</th>
+    <th>data Prevista</th>
+    <th>botoes</th>
+</tr>
+</thead>
+
+<tbody>
+    {%for p in plistar: %}
+    <tr>
+
+        <td>{{p.id}}</td>
+        <td>{{p.nome}}</td>
+        <td>{{p.dataPrevista}}</td>
+
+        <td>
+            <a href="/p/editar/{{p.id}}">Editar</a>
+            <a href="/p/excluir/{{p.id}}">Excluir</a>
+            <a href="/p/detalhes/{{p.id}}">Ver Detalhes</a>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+
+
+
+{% endblock %}

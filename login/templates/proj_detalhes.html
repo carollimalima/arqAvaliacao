@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>oi</title>
+</head>
+<body>
+
+<h1>Detalhes do Projeto</h1>
+
+<table>
+<thead>
+<tr>
+    <th>id</th>
+    <th>Nome Projeto</th>
+    <th>data Prevista</th>
+</tr>
+</thead>
+
+<tbody>
+    <tr>
+
+        <td>{{p.id}}</td>
+        <td>{{p.nome}}</td>
+        <td>{{p.dataPrevista}}</td>
+
+    </tr>
+</tbody>
+</table>
+
+<br>
+<br>
+<br>
+
+<h1>Funcionarios Vinculados ao Projeto</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Nome Funcionario</th>
+        <th>email</th>
+        <th></th>
+    </tr>
+    </thead>
+    
+    <tbody>
+        {% for f in p.funcionarios %}
+        <tr>
+    
+            <td>{{f.id}}</td>
+            <td>{{f.nome}}</td>
+            <td>{{f.email}}</td>
+            <td>
+                <a href="#">Desvincular</a>
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    
+<br>
+<br>
+<br>
+
+
+<h1>Vincular Funcionarios</h1>
+<h3>Clique no botão para vincular os funcionarios que você quer nesse projeto</h3>
+
+<table>
+        <thead>
+        <tr>
+            <th>cod</th>
+            <th>nome</th>
+            <th>email</th>
+            <th></th>
+        </tr>
+        </thead>
+        
+        <tbody>
+            {%for f in flistar: %}
+            <tr>
+        
+                <td>{{f.id}}</td>
+                <td>{{f.nome}}</td>
+                <td>{{f.email}}</td>
+        
+                <td>
+                    <a href="/p/adicionar/{{f.id}}/{{p.id}}">adicionar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+ 
+<br>
+<br>
+
+<!--
+<form action="/home" method="post">
+    {%for f in flistar: %}
+    <br>
+    <br>
+    <b>Id:</b>
+    <label>{{f.id}}</label>
+    <br>
+    <b>Nome:</b>
+    <label>{{f.nome}}</label>
+    <br>
+    <b>Email:</b>
+    <label>{{f.email}}</label>
+    <br>
+    <input name="selecao[]" value={{f.nome}} type="checkbox">
+    
+    {% endfor %}
+    <br>
+    <br>
+    <input type="submit">
+</form>
+
+<br>
+<br>
+
+<a href="/p/listar">
+<button>Voltar</button>
+</a>
+
+    
+</body>
+</html>

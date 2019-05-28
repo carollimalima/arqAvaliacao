@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>oi</title>
+</head>
+<body>
+
+<h1>Lista funcionarios</h1>
+<!-- print(fdao.listar()[0].nome) -->
+<table>
+<thead>
+<tr>
+    <th>cod</th>
+    <th>nome</th>
+    <th>email</th>
+    <th>botoes</th>
+</tr>
+</thead>
+
+<tbody>
+    {%for f in flistar: %}
+    <tr>
+
+        <td>{{f.id}}</td>
+        <td>{{f.nome}}</td>
+        <td>{{f.email}}</td>
+
+        <td>
+            <a href="/editar/{{f.id}}">Editar</a>
+            <a href="/excluir/{{f.id}}">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+
+
+
+    
+    
+</body>
+</html>
